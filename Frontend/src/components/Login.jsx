@@ -15,14 +15,14 @@ const Login = () => {
       email: data.email,
       password: data.password,
     };
-    
-      axios.post("http://localhost:8800/login",userInfo)
+      
+      axios.post("http://localhost:8800/login",userInfo,{withCredentials:true})
 .then((response)=>{
      if(response.data){
         alert("Login Successful");
      }
     localStorage.setItem("ChatApp",JSON.stringify(response.data));
-  window.location.reload();
+    window.location.reload();
 
   })
       // .catch((error)=>{

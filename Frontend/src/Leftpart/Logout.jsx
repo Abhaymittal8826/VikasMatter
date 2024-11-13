@@ -7,8 +7,8 @@ function Logout() {
   const [loading, setLoading] = useState(false);
   const handleLogout = async () => {
     setLoading(true);
-    try {
-      const res = await axios.get("http://localhost:8800/logout");
+    try { 
+      const res = await axios.post("http://localhost:8800/logout");
       localStorage.removeItem("ChatApp");
       Cookies.remove("jwt");
       // setAuthUser(null);

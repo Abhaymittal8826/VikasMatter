@@ -1,7 +1,8 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-import Router from './routes/user.routes.js';
+import userRoute from './routes/user.routes.js';
+import messageRoute from './routes/message.route.js';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 dotenv.config();  
@@ -9,9 +10,10 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 const URL = process.env.MONGODB_URL;
+
 app.use(cors({
-    origin: "http://localhost:5174", // frontend origin
-    credentials: true // allow cookies to be sent
+    origin: "http://localhost:5173", 
+    credentials: true 
 }));
 
 
@@ -20,7 +22,7 @@ const connectDB = async () => {
         await mongoose.connect(process.env.MONGODB_URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            serverSelectionTimeoutMS: 20000, // 20 seconds
+            serverSelectionTimeoutMS: 20000, 
         });
         console.log("Connected to MongoDB");
     } catch (error) {
@@ -30,7 +32,8 @@ const connectDB = async () => {
 connectDB();
 app.use(cookieParser());
 app.use(express.json());
-app.use('/', Router);
+app.use('/user', userRoute);
+app.use("/message",messageRoute);
 
 app.get('/', (req, res) => {
     res.send('HellohIwej,fygh');

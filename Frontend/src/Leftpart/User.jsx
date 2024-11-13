@@ -1,6 +1,7 @@
 import React from 'react'
 
-const User = () => {
+const User =  ({user}) => {
+  if(!user) return null;
   return (
     <div >
 
@@ -11,9 +12,9 @@ const User = () => {
   </div>
  </div>
 <div className='p-5  text-1xl px-8'>
-  <div>  Abhay Mittal</div>
-  <div>sirabhaymittal@gmail.com</div>
-       
+  <div>{user.fullname}</div>
+  <div>{user.email}</div>
+      
     </div>   
     </div> 
     </div>

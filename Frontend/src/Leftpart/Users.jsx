@@ -13,13 +13,18 @@
     Messages
     </div>
     <div className="overflow-y-auto" style={{ maxHeight: "500px" }}>
+     {
+      allUsers.map((user,index)=>(
+        <User key={index} user={user}/>
+     ))
+     }
+    <User className="mb-2" />
+
+   
     <User className="mb-2" />
     <User className="mb-2" />
     <User className="mb-2" />
-    <User className="mb-2" />
-    <User className="mb-2" />
-    <User className="mb-2" />
-    <User className="mb-2" />
+    
       
   </div>
       </div>

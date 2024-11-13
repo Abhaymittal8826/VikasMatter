@@ -71,6 +71,7 @@ const login = async(req,res) =>{
       res.status(500).json({ error: "Internal server error" });
     }
   };
+        
   const userAll = async (req,res)=>{
       try {
         const loggedInUsers = req.user._id;
@@ -83,5 +84,5 @@ const login = async(req,res) =>{
   }
   
 
-export {signup, login, logout,userAll};
+export {signup, login, logout, userAll};
 

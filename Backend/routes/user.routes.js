@@ -4,9 +4,9 @@ import authenticateToken from '../middleware/authenticateToken.js';
 
 const Router = express.Router(); 
 
-Router.post("/signup", signup);
+Router.get("/signup", signup);
 Router.post('/login', login);
-Router.post('/logout', logout);  // Changed from GET to POST
+Router.post('/logout', logout); 
 Router.get('/userAll', authenticateToken, userAll);
 
 export default Router;
